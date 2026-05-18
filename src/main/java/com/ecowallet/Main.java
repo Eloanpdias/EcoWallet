@@ -1,13 +1,28 @@
 package com.ecowallet;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import model.Despesa;
+import model.Receita;
+
 public class Main {
+
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.print("EcoWallet iniciado TESTE 1");
-        {
-        }
+
+        Receita salario = new Receita(
+                "Salário",
+                3000,
+                "18/05/2026"
+        );
+
+        Despesa aluguel = new Despesa(
+                "Aluguel",
+                1200,
+                "18/05/2026"
+        );
+
+        double saldo =
+                salario.calcularImpacto()
+                        + aluguel.calcularImpacto();
+
+        System.out.println("Saldo: R$ " + saldo);
     }
 }
