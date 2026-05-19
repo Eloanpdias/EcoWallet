@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="10"
+      alignment="CENTER"
+      xmlns:fx="http://javafx.com/fxml">
+
+    <Label text="EcoWallet"/>
+
+    <TextField fx:id="txtDescricao"
+               promptText="Descrição"/>
+
+    <TextField fx:id="txtValor"
+               promptText="Valor"/>
+
+    <ComboBox fx:id="comboTipo"/>
+
+    <DatePicker fx:id="datePicker"/>
+
+    <Button text="Adicionar"/>
+
+    <Label fx:id="lblSaldo"
+           text="Saldo: R$ 0"/>
+
+</VBox>
