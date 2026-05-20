@@ -26,4 +26,21 @@
     <Label fx:id="lblSaldo"
            text="Saldo: R$ 0"/>
 
+    <TableView fx:id="tableTransacoes"
+               prefHeight="200">
+
+        <columns>
+
+            <TableColumn fx:id="colDescricao"
+                         text="Descrição"/>
+
+            <TableColumn fx:id="colValor"
+                         text="Valor"/>
+
+            <TableColumn fx:id="colData"
+                         text="Data"/>
+
+        </columns>
+
+    </TableView>
 </VBox>
