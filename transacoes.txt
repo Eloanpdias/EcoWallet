@@ -1,0 +1,2 @@
+recebimento;2433.0;SALÁRIO;2026-05-02
+feriado;245.0;LAZER;2026-05-15

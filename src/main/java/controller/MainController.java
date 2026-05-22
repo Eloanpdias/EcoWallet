@@ -10,6 +10,7 @@ import model.Transacao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.cell.PropertyValueFactory;
+import service.ArquivoService;
 
 import java.util.ArrayList;
 
@@ -161,6 +162,13 @@ public class MainController {
         );
 
         tableTransacoes.setItems(transacoes);
+
+        transacoes.addAll(
+                ArquivoService.carregar()
+        );
+
+        atualizarSaldo();
+
         colDescricao.setPrefWidth(200);
 
         colValor.setPrefWidth(100);
@@ -239,6 +247,8 @@ public class MainController {
 
         transacoes.add(transacao);
 
+        ArquivoService.salvar(transacoes);
+
         atualizarSaldo();
     }
 
@@ -252,6 +262,8 @@ public class MainController {
         if (transacaoSelecionada != null) {
 
             transacoes.remove(transacaoSelecionada);
+
+            ArquivoService.salvar(transacoes);
 
             atualizarSaldo();
         }
