@@ -1,35 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 
-<VBox spacing="10"
-      alignment="CENTER"
+<VBox spacing="15"
+      alignment="TOP_CENTER"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="controller.MainController">
 
-    <Label text="EcoWallet"/>
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
 
-    <TextField fx:id="txtDescricao"
-               promptText="Descrição"/>
+    <!-- TÍTULO -->
 
-    <TextField fx:id="txtValor"
-               promptText="Valor"/>
+    <Label text="EcoWallet"
+           style="-fx-font-size: 28px;
+                  -fx-font-weight: bold;
+                  -fx-text-fill: #2e7d32;"/>
 
-    <ComboBox fx:id="comboTipo"/>
+    <Label text="Controle suas finanças de forma simples"
+           style="-fx-text-fill: gray;
+                  -fx-font-size: 14px;"/>
 
-    <DatePicker fx:id="datePicker"/>
+    <!-- FORMULÁRIO -->
 
-    <Button text="Adicionar"
-            onAction="#adicionarTransacao"/>
+    <GridPane hgap="15"
+              vgap="15"
+              alignment="CENTER">
+
+        <!-- DESCRIÇÃO -->
+
+        <Label text="Descrição"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="0"/>
+
+        <TextField fx:id="txtDescricao"
+                   promptText="Digite a descrição"
+                   prefWidth="220"
+                   GridPane.columnIndex="0"
+                   GridPane.rowIndex="1"/>
+
+        <!-- VALOR -->
+
+        <Label text="Valor"
+               GridPane.columnIndex="1"
+               GridPane.rowIndex="0"/>
+
+        <TextField fx:id="txtValor"
+                   promptText="Digite o valor"
+                   prefWidth="150"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="1"/>
+
+        <!-- TIPO -->
+
+        <Label text="Tipo"
+               GridPane.columnIndex="2"
+               GridPane.rowIndex="0"/>
+
+        <ComboBox fx:id="comboTipo"
+                  promptText="Selecione o tipo"
+                  prefWidth="160"
+                  GridPane.columnIndex="2"
+                  GridPane.rowIndex="1"/>
+
+        <!-- CATEGORIA -->
+
+        <Label text="Categoria"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="2"/>
+
+        <ComboBox fx:id="comboCategoria"
+                  promptText="Selecione uma categoria"
+                  prefWidth="220"
+                  GridPane.columnIndex="0"
+                  GridPane.rowIndex="3"/>
+
+        <!-- DATA -->
+
+        <Label text="Data"
+               GridPane.columnIndex="1"
+               GridPane.rowIndex="2"/>
+
+        <DatePicker fx:id="datePicker"
+                    promptText="Selecione uma data"
+                    prefWidth="180"
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="3"/>
+
+    </GridPane>
+
+    <!-- BOTÕES -->
+
+    <HBox spacing="15"
+          alignment="CENTER">
+
+        <Button text="Adicionar Transação"
+                onAction="#adicionarTransacao"
+                style="-fx-background-color: #4caf50;
+                       -fx-text-fill: white;
+                       -fx-font-weight: bold;"/>
+
+        <Button text="🗑 Remover Transação"
+                onAction="#removerTransacao"
+                style="-fx-background-color: #e53935;
+                       -fx-text-fill: white;
+                       -fx-font-weight: bold;"/>
+
+    </HBox>
+
+    <!-- TEXTO -->
+
+    <Label text="Selecione uma transação na tabela para remover!"
+           style="-fx-text-fill: gray;
+                  -fx-font-size: 11px;"/>
+
+    <!-- SALDO -->
 
     <Label fx:id="lblSaldo"
-           text="Saldo: R$ 0"/>
+           text="Saldo: R$ 0"
+           style="-fx-font-size: 20px;
+                  -fx-font-weight: bold;
+                  -fx-text-fill: #2e7d32;"/>
+
+    <!-- TABELA -->
 
     <TableView fx:id="tableTransacoes"
-               prefHeight="200">
+               prefHeight="350"
+               prefWidth="900">
 
         <columns>
+
+            <TableColumn fx:id="colTipo"
+                         text="Tipo"/>
 
             <TableColumn fx:id="colDescricao"
                          text="Descrição"/>
@@ -37,10 +142,14 @@
             <TableColumn fx:id="colValor"
                          text="Valor"/>
 
+            <TableColumn fx:id="colCategoria"
+                         text="Categoria"/>
+
             <TableColumn fx:id="colData"
                          text="Data"/>
 
         </columns>
 
     </TableView>
+
 </VBox>

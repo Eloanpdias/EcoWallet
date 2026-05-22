@@ -2,8 +2,14 @@ package model;
 
 public class Despesa extends Transacao {
 
-    public Despesa(String descricao, double valor, String data) {
-        super(descricao, valor, data);
+    public Despesa(
+            String descricao,
+            double valor,
+            String data,
+            String categoria
+    ) {
+
+        super(descricao, valor, data, categoria);
     }
 
     @Override

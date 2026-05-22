@@ -5,11 +5,13 @@ public abstract class Transacao {
     private String descricao;
     private double valor;
     private String data;
+    private String categoria;
 
-    public Transacao(String descricao, double valor, String data) {
+    public Transacao(String descricao, double valor, String data, String categoria) {
         this.descricao = descricao;
         this.valor = valor;
         this.data = data;
+        this.categoria = categoria;
     }
 
     public String getDescricao() {
@@ -22,6 +24,10 @@ public abstract class Transacao {
 
     public String getData() {
         return data;
+    }
+
+    public String getCategoria() {
+        return categoria;
     }
 
     public abstract double calcularImpacto();
